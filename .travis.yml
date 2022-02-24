@@ -9,3 +9,5 @@ before_install:
   - docker image build -t todo . 
   - docker container run -d -p 8080:8080 todo
   - docker container ls
+# override the default test (npm test)
+script: curl http://localhost:8080
