@@ -1,6 +1,7 @@
+os: linux
 dist: focal
-# bare minimum
-language: minimal
+# bare minimum (minimum is alias to shell)
+language: shell
 #language: node_js
 #node_js: 
 #  - "lts/*"
@@ -11,7 +12,7 @@ before_install:
   - docker image build -t todo . 
   - docker container run -d -p 8080:8080 todo
   - docker container ls
-# skip install
-install: skip
+# do not skip install
+# install: skip
 # override the default test (npm test)
 script: curl http://localhost:8080
