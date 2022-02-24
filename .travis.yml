@@ -1,10 +1,10 @@
 os: linux
 dist: focal
 # bare minimum (minimum is alias to shell)
-#language: shell
-language: node_js
-node_js: 
-  - "lts/*"
+language: shell
+#language: node_js
+#node_js: 
+#  - "lts/*"
 #  - node
 services: 
   - docker
@@ -13,6 +13,6 @@ before_install:
   - docker container run -d -p 8080:8080 todo
   - docker container ls
 # do not skip install
-# install: skip
+install: skip
 # override the default test (npm test)
-script: docker container ls -a && curl http://localhost:8080
+script: STATUS=$(curl -I http://localhost:8080 &> /dev/stderr --write-out "%{http_code}") | if test $STATUS 200; then exit 0; fi
