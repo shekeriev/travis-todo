@@ -1,13 +1,17 @@
 dist: focal
-language: node_js
-node_js: 
-  - "lts/*"
-  - node
+# bare minimum
+language: minimal
+#language: node_js
+#node_js: 
+#  - "lts/*"
+#  - node
 services: 
   - docker
 before_install: 
   - docker image build -t todo . 
   - docker container run -d -p 8080:8080 todo
   - docker container ls
+# skip install
+install: skip
 # override the default test (npm test)
 script: curl http://localhost:8080
