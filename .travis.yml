@@ -15,4 +15,4 @@ before_install:
 # do not skip install
 # install: skip
 # override the default test (npm test)
-script: curl http://localhost:8080
+script: docker container ls -a && curl http://localhost:8080
