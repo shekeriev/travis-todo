@@ -1,10 +1,10 @@
 os: linux
 dist: focal
 # bare minimum (minimum is alias to shell)
-language: shell
-#language: node_js
-#node_js: 
-#  - "lts/*"
+#language: shell
+language: node_js
+node_js: 
+  - "lts/*"
 #  - node
 services: 
   - docker
