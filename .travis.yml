@@ -1,3 +1,5 @@
+arch: amd64
+virt: lxd 
 os: linux
 dist: focal
 # bare minimum (minimum is alias to shell)
